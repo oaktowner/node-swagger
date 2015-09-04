@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "connect": "^3.2.0",
+    "firebase": "^2.2.9",
     "swagger-tools": "0.8.*"
   }
 }

@@ -1,10 +1,7 @@
 'use strict';
 
 var url = require('url');
-
-
 var Default = require('./DefaultService');
-
 
 module.exports.findPets = function findPets (req, res, next) {
   var tags = req.swagger.params['tags'].value;
@@ -12,13 +9,17 @@ module.exports.findPets = function findPets (req, res, next) {
   
 
   var result = Default.findPets(tags, limit);
+  console.log("result was " + result)
 
   if(typeof result !== 'undefined') {
+    console.log("returning stuff")
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(result || {}, null, 2));
   }
-  else
+  else {
+    console.log("nuthin")
     res.end();
+  }
 };
 
 module.exports.addPet = function addPet (req, res, next) {
